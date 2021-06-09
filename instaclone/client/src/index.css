@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Navbar */
+
+.modal-trigger {
+  color:black;
+}
+
+/* CreatePost */
+
+.post {
+  margin: 30px auto;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+} 
+
+/* Home & SubscribesUserPosts  */
+
+.change {
+  padding: 5px;
+}
+
+.hard {
+  float: right;
+}
+
+.home-span {
+  font-weight: 500;
+} 
+
+/* Profile & UserProfile */
+
+.one {
+  max-width: 550px;
+  margin: 0px auto;
+}
+
+.two {
+  margin: 18px 0px;
+  border-bottom: 1px solid grey;
+}
+
+.three {
+    display: flex;
+    justify-content: space-around;
+}
+
+.four {
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+}
+
+.five {
+  display: flex;
+  justify-content: space-between;
+  width: 108%;
+}
+
+.six {
+  margin: 10px;
+}
+
+.seven {
+  display: flex;
+  justify-content: space-around;
+  margin: 18px 0px;
+  border-bottom: 1px solid grey;
+}
+
+
+
