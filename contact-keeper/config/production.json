@@ -1,0 +1,7 @@
+// the config package that we install in the terminal allows us to create this
+// file nnd it allows us to have access to the values in this file throughout the 
+// entire app 
+{
+  "mongoURI": "mongodb+srv://brad123:brad123@contactkeeper-hvjuz.mongodb.net/test?retryWrites=true",
+  "jwtSecret": "secret"
+}
