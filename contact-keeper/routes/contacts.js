@@ -88,7 +88,7 @@ router.put('/:id', auth, async (req, res) => {
     contact = await Contact.findByIdAndUpdate(
       req.params.id,
       {$set: contactFields},
-      {new: true}, // if the contact doesnt exist then create it
+      {new: true}, // return the new contact we just updated in contact
     );
 
     res.json(contact);
