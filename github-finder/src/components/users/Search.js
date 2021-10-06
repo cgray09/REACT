@@ -32,20 +32,21 @@ const Search = () => {
           value={text}
           onChange={onChange}
         />
-        <input
-          type='submit'
-          value='Search'
-          className='btn btn-dark btn-block'
-        />
+        <div className="btn-style">
+          <input
+            type='submit'
+            value='Search'
+            className='btn btn-dark btn-block btn-w'
+          />
+          <button
+            className='btn btn-primary btn-block btn-w btn-look'
+            onClick={githubContext.clearUsers}
+            disabled={!githubContext.users.length}
+          >
+            Clear
+          </button>
+        </div>
       </form>
-      {githubContext.users.length > 0 && (
-        <button
-          className='btn btn-light btn-block'
-          onClick={githubContext.clearUsers}
-        >
-          Clear
-        </button>
-      )}
     </div>
   );
 };
