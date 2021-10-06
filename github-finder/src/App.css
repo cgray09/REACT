@@ -412,3 +412,16 @@ table th {
     justify-content: center;
   }
 }
+
+.btn-style {
+  display: flex;
+}
+
+.btn-w {
+  width: 15%;
+}
+
+.btn-look {
+  height: 20%;
+  margin-top: 19px;
+}
