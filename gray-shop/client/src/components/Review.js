@@ -60,8 +60,9 @@ export default function Review({product}) {
           />
 
           <input type="text" className="form-control mt-2" value={comment} onChange={(e)=>{setcomment(e.target.value)}}/>
-          <button className='btn mt-3' onClick={sendreview}>Submit Review</button>
-
+          <div className="d-flex justify-content-start">
+            <button className='btn mt-3' onClick={sendreview}>Submit Review</button>
+          </div>
           <h2 className='mt-3'>Latest Reviews</h2>
 
           {product.reviews && (product.reviews.map(review=>{
@@ -75,7 +76,7 @@ export default function Review({product}) {
 
           />
           <p>{review.comment}</p>
-          <p>By : {review.name}</p>
+          <p>By: {review.name}</p>
           <hr/>
               </div>
           }))}

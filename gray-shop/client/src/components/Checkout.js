@@ -38,7 +38,7 @@ export default function Checkout({amount}) {
             token={tokenHandler}
             amount={amount*100}
             shippingAddress
-            currency='INR'
+            currency='USD'
             stripeKey='pk_test_51IYnC0SIR2AbPxU0TMStZwFUoaDZle9yXVygpVIzg36LdpO8aSG8B9j2C0AikiQw2YyCI8n4faFYQI5uG3Nk5EGQ00lCfjXYvZ'
             >
 

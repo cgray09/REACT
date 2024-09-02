@@ -3,7 +3,6 @@ import './App.css';
 import {BrowserRouter , Route} from 'react-router-dom'
 import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Homescreen from './screens/Homescreen';
 import Productdescscreen from './screens/Productdescscreen';
 import Cartscreen from './screens/Cartscreen';
@@ -40,12 +39,9 @@ function App() {
            <Route path='/profile' component={Profilescreen} />
 
            <Route path='/admin' component={Adminscreen}/>
-           
 
         </BrowserRouter>
-       
-          <Footer />
-        
+               
     </div>
   );
 }

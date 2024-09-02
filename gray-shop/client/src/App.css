@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -116,4 +122,14 @@ button {
 
 .orders-style {
   margin-bottom: 380px;
+}
+
+.review-container {
+  max-width: 1300px; /* Set a maximum width for the reviews */
+  width: 100%; /* Ensure it scales for smaller screens */
+  margin: 0 auto; /* Center the reviews horizontally */
+}
+
+.select-small {
+  width: 60px; /* Adjust the width as needed */
 }
