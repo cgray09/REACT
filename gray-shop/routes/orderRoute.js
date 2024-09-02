@@ -19,7 +19,7 @@ router.post("/placeorder", async (req, res) => {
         currency: 'usd',
         customer: customer.id,
         receipt_email: token.email,
-        description: `Payment for Order by ${currentUser.name}`, // Add description here
+        description: `Payment for Order by ${currentUser.name}`, 
       },
       {
         idempotencyKey: uuidv4(),
