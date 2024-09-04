@@ -7,7 +7,7 @@ import "../styling/blogs.css";
 
 const Blogs = () => {
   const searchInput = useSelector(selectUserInput);
-  const blog_url = `https://gnews.io/api/v4/search?q=${searchInput}&token=74da443369bd202a1f3146a275d761fc`;
+  const blog_url = `https://gnews.io/api/v4/search?q=${searchInput}&token=55e926c4f03d30602bf82cb876ae7c00`;
   const dispatch = useDispatch();
   const [blogs, setBlogs] = useState();
 
@@ -17,14 +17,32 @@ const Blogs = () => {
     axios
       .get(blog_url)
       .then((response) => {
-        dispatch(setBlogData(response.data));
-        setBlogs(response.data);
+        const articles = response.data.articles;
+        const uniqueArticlesMap = new Map();
+  
+        articles.forEach((article) => {
+          // Normalize the data to handle minor differences
+          const normalizedUrl = article.url.trim().toLowerCase();
+          const normalizedTitle = article.title.trim().toLowerCase();
+          const uniqueKey = `${normalizedUrl}_${normalizedTitle}`;
+  
+          if (!uniqueArticlesMap.has(uniqueKey)) {
+            uniqueArticlesMap.set(uniqueKey, article);
+          }
+        });
+  
+        const uniqueArticles = Array.from(uniqueArticlesMap.values());
+  
+        // Set the filtered unique articles in the state
+        dispatch(setBlogData({ ...response.data, articles: uniqueArticles }));
+        setBlogs({ ...response.data, articles: uniqueArticles });
         setLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [searchInput]);
+    
 
   return (
     <div className="blog__page">
