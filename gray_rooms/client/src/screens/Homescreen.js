@@ -103,7 +103,7 @@ function Homescreen() {
           <div className="col-md-4">
             <input
               type="text"
-              className="form-control i2 m-2"
+              className="form-control m-2"
               placeholder='Search Rooms'
               value={searchkey}
               onKeyUp={filterBySearch}
