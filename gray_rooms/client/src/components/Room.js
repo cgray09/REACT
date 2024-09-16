@@ -28,15 +28,20 @@ function Room({ room, fromdate, todate }) {
         </p>
 
         <div style={{ float: "right" }}>
-          
-          {(fromdate && todate) && (<Link to={`/book/${room._id}/${fromdate}/${todate}`}>
-            <button className="btn btn-dark m-2">Book Now</button>
-          </Link>)}
+  <Link to={localStorage.getItem('currentUser') && fromdate && todate ? `/book/${room._id}/${fromdate}/${todate}` : '#'}>
+    <button
+      className="btn btn-dark m-2"
+      disabled={!(localStorage.getItem('currentUser') && fromdate && todate)}
+    >
+      Book Now
+    </button>
+  </Link>
 
-          <button className="btn btn-danger m-2"  onClick={handleShow}>
-            View Details
-          </button>
-        </div>
+  <button className="btn btn-danger m-2" onClick={handleShow}>
+    View Details
+  </button>
+</div>
+
       </div>
 
       <Modal show={show} onHide={handleClose} size="lg" data--aos='zoom-in'>
