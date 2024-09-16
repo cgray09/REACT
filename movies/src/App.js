@@ -6,12 +6,11 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
-import Footer from './components/Footer';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [favourites, setFavourites] = useState([]);
-	const [searchValue, setSearchValue] = useState('');
+	const [searchValue, setSearchValue] = useState('Star Wars'); // Set a default search value
 
 	const getMovieRequest = async (searchValue) => {
 		const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=aeb2b829`;
@@ -24,6 +23,7 @@ const App = () => {
 		}
 	};
 
+	// Fetch movies on initial load with the default search value
 	useEffect(() => {
 		getMovieRequest(searchValue);
 	}, [searchValue]);
@@ -36,6 +36,18 @@ const App = () => {
 		if (movieFavourites) {
 			setFavourites(movieFavourites);
 		}
+
+		// Event listener to clear local storage on page unload
+		const handleBeforeUnload = () => {
+			localStorage.removeItem('react-movie-app-favourites');
+		};
+
+		window.addEventListener('beforeunload', handleBeforeUnload);
+
+		// Cleanup the event listener when the component unmounts
+		return () => {
+			window.removeEventListener('beforeunload', handleBeforeUnload);
+		};
 	}, []);
 
 	const saveToLocalStorage = (items) => {
@@ -79,10 +91,6 @@ const App = () => {
 					handleFavouritesClick={removeFavouriteMovie}
 					favouriteComponent={RemoveFavourites}
 				/>
-			</div>
-			<span class="space">ddd</span>
-			<div class="container">
-				<Footer />
 			</div>
 		</div>
 	);
